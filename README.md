@@ -4,9 +4,9 @@
 
 The problem at hand was to create a single API which could be used to not only query bookings made for a parking lot with 4 spaces but also be used to allow users to book parking spaces for a particular date.
 Some of the constraints were
-1. A single user could only book one parking space for a single day.
-2. Booking would have to be made 24 hours in advance of the booking date.
-3. Only 4 slots would be available for any parking space. After 4 slots were filled. No further booking would be allowed to make
+1. A single user would be allowed to only book one parking space for any given day.
+2. Bookings would have to be made 24 hours in advance of the booking date.
+3. Only 4 slots would be available for any parking space. After 4 slots were to be filled, No further booking would be allowed.
 
 
 ## Assumptions
@@ -14,8 +14,7 @@ Some of the assumptions I made are as follows.
 1. All customers have one single car with a unique license number.
 2. Booking date starts at 12am
 3. License plate numbers and names are less than 500 characters in length
-4. License plate numbers are unique.
-5. Names can be a blank field as well
+4. Names can be blank too.
 
 
 ## To setup application
