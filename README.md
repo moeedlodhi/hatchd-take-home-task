@@ -9,7 +9,7 @@ Some of the constraints were
 3. Only 4 slots would be available for any parking space. After 4 slots were filled. No further booking would be allowed to make
 
 
-##Assumptions
+## Assumptions
 Some of the assumptions I made are as follows.
 1. All customers have one single car with a unique license number.
 2. Booking date starts at 12am
