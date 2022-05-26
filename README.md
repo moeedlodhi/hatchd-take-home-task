@@ -13,6 +13,9 @@ Some of the constraints were
 Some of the assumptions I made are as follows.
 1. All customers have one single car with a unique license number.
 2. Booking date starts at 12am
+3. License plate numbers and names are less than 500 characters in length
+4. License plate numbers are unique.
+5. Names can be a blank field as well
 
 
 ## To setup application
