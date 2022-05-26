@@ -37,7 +37,7 @@ class ParkingLotView(APIView):
                     "data":[]
                 }
                 )
-        if len(list(query_bookings))==4:
+        elif len(list(query_bookings))==4:
                 return Response(
                 {
                     "status":"201",
@@ -47,7 +47,7 @@ class ParkingLotView(APIView):
                 )
 
 
-        if int((converted_date-datetime.now().date()).days)<2:
+        elif int((converted_date-datetime.now().date()).days)<2:
             
             return Response(
                 {

@@ -36,6 +36,8 @@ class BasicTest(APITestCase):
 
         }
         response = self.client.post('/parking/parkinglot/',data)
+        
+        self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json()['message'], "Sorry, you have already made a booking")
 
     def test_all_slots_booked(self):
@@ -58,6 +60,8 @@ class BasicTest(APITestCase):
 
         }
         response = self.client.post('/parking/parkinglot/',data)
+        
+        self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json()['message'], "No slots available for this day")
 
     def test_booking_date(self):
@@ -70,6 +74,8 @@ class BasicTest(APITestCase):
 
         }
         response = self.client.post('/parking/parkinglot/',data)
+        
+        self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json()['message'], "Bookings have to be made atleast 24 hours before the booking date")
         
 
