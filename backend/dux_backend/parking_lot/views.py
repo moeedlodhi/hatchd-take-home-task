@@ -13,8 +13,6 @@ from datetime import datetime
 
 class ParkingLotView(APIView):
 
-    authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
 
     def get(self,request):
         query_date = request.GET.get('query_date')
@@ -29,12 +27,12 @@ class ParkingLotView(APIView):
         converted_date = datetime.fromisoformat(booking_date).date()
         query_bookings = booking.objects.filter(booking_date=booking_date)
         customer_obj,created = customer.objects.get_or_create(name=name,license_plate_number=license_plate_number)
-        customer_quey_filter = booking.objects.filter(customer=customer_obj,booking_date=booking_date)
-        print('******************moeed',customer_quey_filter)
-        if len(list(customer_quey_filter)) ==1:
+        customer_query_filter = booking.objects.filter(customer=customer_obj,booking_date=booking_date)
+  
+        if len(list(customer_query_filter)) ==1:
             return Response(
                 {
-                    "status":"200",
+                    "status":"201",
                     "message":"Sorry, you have already made a booking",
                     "data":[]
                 }
@@ -42,7 +40,7 @@ class ParkingLotView(APIView):
         if len(list(query_bookings))==4:
                 return Response(
                 {
-                    "status":"200",
+                    "status":"201",
                     "message":"No slots available for this day",
                     "data":[]
                 }
@@ -53,7 +51,7 @@ class ParkingLotView(APIView):
             
             return Response(
                 {
-                    "status":"200",
+                    "status":"201",
                     "message":"Bookings have to be made atleast 24 hours before the booking date",
                     "data":[]
                 }
@@ -71,7 +69,7 @@ class ParkingLotView(APIView):
             
             
 
-        return Response({"status":"200","message":"success","data":[]})
+        return Response({"status":"201","message":"success","data":[]})
 
 
 
