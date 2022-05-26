@@ -18,11 +18,14 @@ Some of the assumptions I made are as follows.
 
 
 ## To setup application
-1. First create a virtual environment using "Python -m venv 'somename'"
+1. First create a virtual environment using `Python -m venv 'somename'`
 2. Activate the virtual enviroment
-3. run "pip install -r requirements.txt" to install all packages needed
-4. run "python manage.py migrate" to run all migrations
-5. run "python manage.py runserver" to start the server at `http://localhost:8000/`
+3. run `pip install -r requirements.txt` to install all packages needed
+4. run `python manage.py migrate` to run all migrations
+5. run `python manage.py runserver` to start the server at `http://localhost:8000/`
+
+## To access Django admin panel (optional)
+1. Run `python manage.py createsuperuser` to create a superuser and go to `http://localhost:8000/admin/` to access the admin panel
 
 ## To run API
 
@@ -39,5 +42,5 @@ Some of the assumptions I made are as follows.
 
 
 ## To run tests
-1. Run "python manage.py test" to run all test cases
+1. Run `python manage.py test` to run all test cases
 
