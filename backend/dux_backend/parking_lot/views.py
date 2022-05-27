@@ -19,9 +19,10 @@ class ParkingLotView(APIView):
         query_bookings = booking.objects.filter(booking_date=query_date)
         serialized = BookingSerializer(query_bookings,many=True)
         return Response({
-            "status":"201",
+            "status":"200",
             "message":"success",
-            "data":serialized.data}
+            "data":serialized.data
+            }
             )
 
     def post(self,request):
@@ -36,7 +37,7 @@ class ParkingLotView(APIView):
         if len(list(customer_query_filter)) ==1:
             return Response(
                 {
-                    "status":"201",
+                    "status":"400",
                     "message":"Sorry, you have already made a booking",
                     "data":[]
                 }
@@ -44,7 +45,7 @@ class ParkingLotView(APIView):
         elif len(list(query_bookings))==4:
                 return Response(
                 {
-                    "status":"201",
+                    "status":"400",
                     "message":"No slots available for this day",
                     "data":[]
                 }
@@ -55,7 +56,7 @@ class ParkingLotView(APIView):
             
             return Response(
                 {
-                    "status":"201",
+                    "status":"400",
                     "message":"Bookings have to be made atleast 24 hours before the booking date",
                     "data":[]
                 }
