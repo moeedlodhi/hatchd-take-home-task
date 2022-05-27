@@ -18,7 +18,11 @@ class ParkingLotView(APIView):
         query_date = request.GET.get('query_date')
         query_bookings = booking.objects.filter(booking_date=query_date)
         serialized = BookingSerializer(query_bookings,many=True)
-        return Response({"status":"200","message":"success","data":serialized.data})
+        return Response({
+            "status":"201",
+            "message":"success",
+            "data":serialized.data}
+            )
 
     def post(self,request):
         name = request.data.get('name','')
